@@ -20,6 +20,37 @@ Configuration
 
     php artisan vendor:publish --tag=lang
     
+### 导出配置文件
+
+    php artisan vendor:publish  --tag=catpcha
+
+    在配置目录下会生成一个验证码配置文件：
+    config/catpcha.php
+
+    修改配置
+    ```php
+    ...
+    'admin' => [
+        'length' => 4,
+        'width' => 120,
+        'height' => 36,
+        'quality' => 90,
+        'math' => false,
+        'expire' => 60,
+        'encrypt' => false,
+    ],
+    ...
+    ```
+    
+### 修改标题样式
+    在admin.php中添加html_name可以输入html标签
+```php
+...
+   'name' => 'Laravel Admin',
+   'html_name' => '<span style="color: #dddddd;">Laravel Admin</span><br/><span>login captcha</span>',
+...
+```
+
 ### 输入框背景透明化
 
 在config/admin.php 中添加 
