@@ -8,21 +8,26 @@ First, install dependencies:
  
 Configuration
  In the extensions section of the config/admin.php file, add some configuration that belongs to this extension.
- 
-     'extensions' => [
-         'login-captcha' => [
-             // set to false if you want to disable this extension
-             'enable' => true,
-         ]
+
+    'name' => 'Laravel Admin',
+    'html_name' => '<h2 style="color: #ffffff;">Laravel Admin</h3><br/><h3>Login Catpcha</h3>', // Set title by html code. this value is higher priority then "name".
+
+    'logo_img' => '/image/logo.png', // set Logo image on the "name" left.
+
+    'extensions' => [
+     'login-captcha' => [
+         // set to false if you want to disable this extension
+         'enable' => true,
      ]
+    ]
      
 ### 修改中文
 
     php artisan vendor:publish --tag=lang
     
-### 导出配置文件
+### 导出验证码配置文件。Export Captchat config file.
 
-    php artisan vendor:publish  --tag=catpcha
+    php artisan vendor:publish --provider="Mews\Captcha\CaptchaServiceProvider"
 
     在配置目录下会生成一个验证码配置文件：
     config/catpcha.php
